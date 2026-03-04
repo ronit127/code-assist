@@ -1,5 +1,7 @@
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+
 export async function analyzeCode(code, language, context = null, question = null) {
-  const response = await fetch('/api/analyze', {
+  const response = await fetch(`${API_BASE}/api/analyze`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ code, language, context, question })
